@@ -1,0 +1,70 @@
+<html>
+    <head>
+    <style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        align-items: center;
+    }
+    .box {
+        text-align: center;
+        background-color: #c6cece;
+    }
+    h4 {
+        background-color: #454749;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+    font-family: monospace
+    }
+    .title {
+        text-align: center;
+    }
+    .keycode {
+        text-align: center;
+    font-size: 12em;
+    }
+    </style>
+    </head>
+    <body>
+        <h1 class="title">Keycode Generator</h1>
+        <h1 class="keycode" id="keycode">13</h1>
+        <div class="grid">
+            <div class="box">
+                <h4>event.key</h4>
+                <h1 id="key"></h1>
+            </div>
+            <div class="box">
+                <h4>event.location</h4>
+                <h1 id="location"></h1>
+            </div>
+            <div class="box">
+                <h4>event.which</h4>
+                <h1 id="which"></h1>
+            </div>
+            <div class="box">
+                <h4>event.code</h4>
+                <h1 id="code"></h1>
+            </div>
+        </div>
+<script>
+    let Key = document.querySelector("#Key");
+    let evlocation = document.querySelector("#location");
+    let which = document.querySelector("#which");
+    let code = document.querySelector("#code");
+    let keycode = document.querySelector("#keycode");
+
+    function keycodeGenerator(e){
+        Key.textContent = e.key;
+        evlocation.textContent = e.location;
+        which.textContent = e.which;
+        code.textContent = e.code;
+        keycode.textContent = e.keyCode;
+    }
+
+    document.body.addEventListener('keydown',keycodeGenerator);
+</script>
+    </body>
+</html>

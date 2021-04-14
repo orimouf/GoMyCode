@@ -1,0 +1,548 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+	    <title>Shopping Cart</title>
+        <link rel="stylesheet" href="css/all.min.css" type="text/css">
+	    <link rel="stylesheet" href="css/fontawesome.min.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/style-media.css" type="text/css">
+    </head>
+    <body>
+        <div class="popup-box"></div>
+        <section class="header-section border-btm">
+            <h1>Shopping Cart</h1>
+        </section>
+        <section class="main-section border-btm">
+            <div class="container grid-2">
+                <div class="box grid-1">
+                    <div class="top-bar">
+                        <p><i class="fab fa-opencart"></i>Order summary</p>
+                        <p class="remove-all">Remove all</p>
+                    </div>
+                    <div class="item-container grid-1"></div>
+                    <div class="total-container">
+                        <hr>
+                        <div class="item-total grid-1" style="gap: 5px;">
+                            <div>
+                                <p>Subtotal</p><p class="Subtotal">0</p>
+                            </div>
+                            <div>
+                                <p>Shipping fees</p><p class="Shipping-fees">0</p>
+                            </div>
+                            <div>
+                                <p>Taxes</p><p class="Taxes">0</p>
+                            </div>
+                            <div>
+                                <p>Total (including tax)</p><p class="Total">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box grid-1">
+                    <div class="main-card">
+                        <div class="flex-display-box">
+                            <div class="card-used"></div>
+                            <div>
+                                <p>Add new credit card</p>
+                                <div class="add-card card-panel">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-name">
+                            <p>Name of card holder</p>
+                            <div class="box-info">
+                                <p class="card-holder-name">--- ---</p>
+                            </div>
+                        </div>
+                        <div class="card-number">
+                            <p>Credit card number</p>
+                            <div class="box-info">
+                                <p class="card-number-child">---- ---- ---- ----</p>
+                            </div>
+                        </div>
+                        <div class="flex-display-box">
+                            <div class="card-expiration">
+                                <p>Expiration</p>
+                                <div class="box-info">
+                                    <p class="card-expiration-child">--/--</p>
+                                </div>
+                            </div>
+                            <div class="card-cvv">
+                                <p>CVV<i class="fas fa-info-circle"></i></p>
+                                <div class="box-info">
+                                    <p class="card-cvv-child">---</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-section btn-new-cart flex-display-box">
+                            <button id="make-payment" class="box-btn">Make Payment</button>
+                            <button class="box-btn">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="add-new-card"></div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p> © Harrouche Abd Erraouf.</p>
+        </footer>  
+<script>
+class cardData {
+    constructor(id,type,holder,number,expiration,cvv){
+        this.userid = id;
+        this.cardType = type;
+        this.cardHolder = holder;
+        this.cardNumber = number;
+        this.cardExpiration = expiration;
+        this.cardCVV = cvv;
+    }
+}
+// function to reduce  document.querySelector to _
+function _(x){ return document.querySelector(x); }
+
+let deleteAllItem = _('.remove-all');
+let addCard = _('.add-card');
+let mainCard = _('.main-card');
+let add_New_Card = _('.add-new-card');
+let make_Payment = _('#make-payment');
+const Currency = '$';// Currency used
+const card_DATA = [];
+var itemCart_DATA = [
+    {
+        itemId: 1,
+        itemImage: 'Hdd623535d9124c37a2cebbc64381f748u.jpg',
+        itemName: 'phone blootooth headset',
+        itemSubInformation: 'B11 IPX5 waterproof OEM sports headset stereo TWS true wireless mobile',
+        itemPrice: 12.90,
+        itemQty: 2,
+        itemShippingFees: 3.12,
+        itemTaxs: 4.10,
+        itemLike: true
+    },
+    {
+        itemId: 2,
+        itemImage: 'Haea5426efa634b74a48c08e676e747fbe.jpg',
+        itemName: 'smartwatch HW11',
+        itemSubInformation: 'touch screen camera smart watch phone ip68 waterproof with sim card',
+        itemPrice: 19.30,
+        itemQty: 1,
+        itemShippingFees: 3.90,
+        itemTaxs: 3.44,
+        itemLike: false
+    },
+    {
+        itemId: 3,
+        itemImage: 'He779a100edc24f55a406686364aeef81y.jpg',
+        itemName: 'Constant heating mug',
+        itemSubInformation: 'cup warmer new design qi charger mobile phone wireless',
+        itemPrice: 22.90,
+        itemQty: 3,
+        itemShippingFees: 2.80,
+        itemTaxs: 1.20,
+        itemLike: false
+    },
+    {
+        itemId: 4,
+        itemImage: 'H0bc16a0d20a44b0c819e0087a130e86b1.jpg',
+        itemName: 'Mini LCD Projector',
+        itemSubInformation: 'Multi Color Home Pocket LED',
+        itemPrice: 28.90,
+        itemQty: 1,
+        itemShippingFees: 2.10,
+        itemTaxs: 2,
+        itemLike: false
+    },
+    {
+        itemId: 5,
+        itemImage: 'H4f48adce8cc64bfc9bd77c6496d7ae59K.jpg',
+        itemName: 'M10 Ultra Smartphone',
+        itemSubInformation: '7.2inch 12GB+512GB Full Screen Mobile Phone Finger/Face Unclock Cellphone',
+        itemPrice: 59.20,
+        itemQty: 4,
+        itemShippingFees: 6.34,
+        itemTaxs: 8.56,
+        itemLike: false
+    },
+    {
+        itemId: 6,
+        itemImage: 'Hc04a1c90711746aab8850f3ef8ccc946f.jpg',
+        itemName: 'Ip68 Waterproof Smart Watch',
+        itemSubInformation: 'Bracelet With Heart Rate Monitor Blood Pressure For Phone',
+        itemPrice: 23.84,
+        itemQty: 1,
+        itemShippingFees: 2.50,
+        itemTaxs: 3.90,
+        itemLike: false
+    }
+];
+// add data to card array
+const card_1 = new cardData(0,"VISA","Jhon Doe","1234 3924 2394 3294","02/25","231");
+card_DATA.push(card_1);
+// item side function
+function setItemCart(){
+    let itemContainer = _('.item-container');
+    let liked = `<i class="fas fa-heart"></i>`;
+    for(elem in itemCart_DATA){
+        let item = itemCart_DATA[elem];
+        let itemBox = document.createElement('div');
+        let priceItems = item.itemQty * item.itemPrice;
+
+        if(!item.itemLike) liked = `<i class="far fa-heart"></i>`;
+        itemBox.className = "item-box grid-12";  
+        itemBox.innerHTML = `
+            <input class="item-id" type="hidden" value="${item.itemId}">
+            <img src="images/${item.itemImage}">
+            <div class="item-text">
+                <p>${item.itemName}</p>
+                <p>${item.itemSubInformation}</p>
+            </div>
+            <div class="item-qty">
+                <p class="qty-dec">-</p><p class="qty">${item.itemQty}</p><p class="qty-inc">+</p>
+            </div>
+            <div class="item-price">
+                <p>${Currency}</p><p class="price" data="${item.itemPrice}">${priceItems.toFixed(2)}</p>
+            </div>
+            <div class="item-action">${liked}<i class="far fa-trash-alt"></i></div>`;
+        itemContainer.appendChild(itemBox);
+    }
+    document.querySelectorAll('.qty-dec').forEach(QtyDec => {
+        QtyDec.addEventListener('click', itemQtyManage)
+    })
+    document.querySelectorAll('.qty-inc').forEach(QtyInc => {
+        QtyInc.addEventListener('click', itemQtyManage)
+    })
+    document.querySelectorAll('.fa-trash-alt').forEach(deleteItem => {
+        deleteItem.addEventListener('click', itemDelete)
+    })
+    document.querySelectorAll('.fa-heart').forEach(LikeItem => {
+        LikeItem.addEventListener('click', itemLike)
+    })
+}
+
+function itemQtyManage(event){
+    let parent = event.target.parentElement;
+    let itemBoxParent = parent.parentElement;
+    let itemId = parseInt(itemBoxParent.querySelector('.item-id').value);
+    let itemPrice = itemBoxParent.querySelector('.price');
+    let oldItemPrice = parseFloat(itemPrice.getAttribute("data"));
+    let middleChild = parent.querySelector('.qty');
+    let currentQty = parseInt(middleChild.textContent);
+    let newQty,newPrice;
+    if(!(event.target.className === "qty-dec" && currentQty === 0)) {
+        if(event.target.className === "qty-inc") {
+            newQty = ++currentQty;
+        } else {
+            newQty = --currentQty;
+        }
+        newPrice = (oldItemPrice * newQty).toFixed(2);
+        itemPrice.textContent = newPrice;
+        middleChild.textContent = newQty;
+        editItemCart_DATA(itemId,newQty);
+        totalToPay();    
+    }
+}
+
+function editItemCart_DATA(id,value){
+    for(elem in itemCart_DATA){
+        if(itemCart_DATA[elem].itemId === id){
+            itemCart_DATA[elem].itemQty = value;
+            return true;
+        }
+    }
+    return false;
+}
+
+function totalToPay(){
+    let Subtotal = 0,totalPrice = 0,totalTaxs = 0,totalShippingFees = 0; 
+    let SubtotalDom = _('.Subtotal');
+    let ShippingFeesDom = _('.Shipping-fees');
+    let TaxesDom = _('.Taxes');
+    let TotalDom = _('.Total');
+    let totaleItem = 0;
+    for(elem in itemCart_DATA) {
+        totaleItem += itemCart_DATA[elem].itemQty;
+        Subtotal += (itemCart_DATA[elem].itemPrice * itemCart_DATA[elem].itemQty);
+        totalShippingFees += itemCart_DATA[elem].itemShippingFees;
+        totalTaxs += itemCart_DATA[elem].itemTaxs;
+    }
+    if(totaleItem === 0) {
+        Subtotal = 0;totalShippingFees = 0;totalTaxs = 0;
+    }
+    totalPrice = Subtotal + totalShippingFees + totalTaxs;
+    SubtotalDom.textContent = Currency + Subtotal.toFixed(2);
+    ShippingFeesDom.textContent = Currency + totalShippingFees.toFixed(2);
+    TaxesDom.textContent = Currency + totalTaxs.toFixed(2);
+    TotalDom.textContent = Currency + totalPrice.toFixed(2); 
+    
+    return totalPrice.toFixed(2);
+}
+
+function itemDelete(event){
+    let itemContainer = _('.item-container');
+    let childItem = event.target.parentElement.parentElement;
+    let id = parseInt(childItem.querySelector('.item-id').value);
+    let newArray = [];
+    //delete from DOM
+    itemContainer.removeChild(childItem);
+    //delete from DATA
+    for (item in itemCart_DATA) {   
+        if(itemCart_DATA[item].itemId !== id){
+            newArray.push(itemCart_DATA[item]);
+        }
+    }
+    itemCart_DATA = newArray;
+    totalToPay();
+}
+
+function itemLike(event){
+    let oldclassName = event.target.className;
+    let itemContainer = _('.item-container');
+    let childItem = event.target.parentElement.parentElement;
+    let id = parseInt(childItem.querySelector('.item-id').value)-1;
+
+    if(oldclassName === "fas fa-heart"){
+        event.target.className = "far fa-heart";
+        itemCart_DATA[id].itemLike = false;
+    } else {
+        event.target.className = "fas fa-heart";
+        itemCart_DATA[id].itemLike = true;
+    }   
+}
+
+// card side function
+function setCardInformation(i=0){
+    let cardUsed = _('.card-used');
+    let cardHolderName = _('.card-holder-name');
+    let cardNumberChild = _('.card-number-child');
+    let cardExpirationChild = _('.card-expiration-child');
+    let cardCvvChild = _('.card-cvv-child');
+    let masterCardIcon = '<i class="fab fa-cc-mastercard"></i>';
+    let visaCardIcon = '<i class="fab fa-cc-visa"></i>';
+    let cardTypeIs = masterCardIcon, nextIndex = i;
+
+    if(card_DATA.length === 0){
+        cardUsed.innerHTML = `<p>Current credit card</p><div class="card-panel grid-1">
+            <i class="fab fa-cc-visa"></i><p><b style="font-size: 18px;">----  ----  ----  ----</b></p>
+            <p>-------  -------</p></div>`;
+    } else {
+        // inc the next index value
+        if((i+1) >= card_DATA.length) nextIndex = 0;
+        else nextIndex += 1;
+        
+        if(card_DATA[i].cardType === "VISA") cardTypeIs = visaCardIcon;
+        let lastNumOfCard = card_DATA[i].cardNumber.split(" ");
+        cardUsed.innerHTML = `
+            <p>Current credit card</p>
+            <div class="card-panel grid-1">
+                <input class="next-index" type="hidden" value="${nextIndex}">
+                ${cardTypeIs}
+                <p><b>&#x25cf;&#x25cf;&#x25cf;&#x25cf;  &#x25cf;&#x25cf;&#x25cf;&#x25cf;  &#x25cf;&#x25cf;&#x25cf;&#x25cf;</b> 
+                    ${lastNumOfCard[lastNumOfCard.length-1]}
+                </p>
+                <i class="next-card fas fa-arrow-circle-right"></i>
+                <p>${card_DATA[i].cardHolder}</p>
+            </div>`;
+        cardHolderName.textContent = card_DATA[i].cardHolder;
+        cardNumberChild.textContent = card_DATA[i].cardNumber;
+        cardExpirationChild.textContent = card_DATA[i].cardExpiration;
+        cardCvvChild.textContent = card_DATA[i].cardCVV;
+        
+        _('.next-card').addEventListener('click', nextCard);
+    }
+}
+
+function addNewCard(){
+    let newCardForm = _('.new-card-form');
+    let mastercardType = _('#mastercard');
+    let visaType = _('#visa');
+    let nameInput = _('#name-input');
+    let numberInput = _('#number-input');
+    let expirationInput = _('#expiration-input');
+    let cvvInput = _('#cvv-input');
+    let msg = _('#msg');
+    let typeInput = "";
+    let errorStyle = `box-shadow: 0 0 5px red;border-radius: 10px;`
+    
+    if(mastercardType.checked) typeInput = mastercardType.value;
+    else if(visaType.checked) typeInput = visaType.value;
+    // check if some input are empty
+    if(nameInput.value === "" || numberInput.value === "" || expirationInput.value == "" || cvvInput.value === "" || typeInput === ""){
+        if(nameInput.value === "") nameInput.parentElement.style = errorStyle;
+        if(numberInput.value === "") numberInput.parentElement.style = errorStyle;
+        if(expirationInput.value === "") expirationInput.parentElement.style = errorStyle;
+        if(cvvInput.value === "") cvvInput.parentElement.style = errorStyle;
+        if(typeInput === "") visaType.checked = "checked";
+        msg.textContent = "Please check some input are empty!";
+        msg.className = "error-msg";
+    } else {
+        // Delete the error style
+        nameInput.parentElement.style = '';numberInput.parentElement.style = '';
+        expirationInput.parentElement.style = '';cvvInput.parentElement.style = '';
+        msg.textContent = '';msg.className = '';
+        let noError = true;
+        // check some error
+        if(isNaN(parseInt(numberInput.value)) || (parseInt(numberInput.value)).toString().length !== 16){
+            msg.textContent = "Please enter a correct number of card";
+            msg.className = "error-msg";noError = false;
+        }
+        if(expirationInput.value.length !== 5){
+            msg.textContent = "Please enter a correct Expiration of card (--/--)";
+            msg.className = "error-msg";noError = false;
+        }
+        if(cvvInput.value.length !== 3){
+            msg.textContent = "Please enter a correct CVV of card";
+            msg.className = "error-msg";noError = false;
+        }
+        // add cart
+        if(noError === true){
+            let userId = card_DATA.length;
+            nameInput = nameInput.value;
+            numberInput = (numberInput.value).match(/.{1,4}/g).join(" ");
+            expirationInput = expirationInput.value;
+            cvvInput = cvvInput.value;
+            const card_2 = new cardData(userId,typeInput,nameInput,numberInput,expirationInput,cvvInput);
+            card_DATA.push(card_2);
+            mainCard.style.display = "block";
+            add_New_Card.removeChild(newCardForm);
+            setCardInformation(userId);
+            if(card_DATA.length > 1) _('.next-card').style.display = "block";
+        }
+    }
+}
+
+function newCardDisplay(){
+    mainCard.style.display = "none";
+    let addForm = document.createElement('form');
+    addForm.className = "new-card-form";
+    addForm.setAttribute('onsubmit','return false');
+    addForm.innerHTML = `
+        <div class="flex-display-box">
+            <div class="type-card">
+                <input type="radio" id="mastercard" name="type" value="MASTERCARD">
+                <span class="checkmark"></span>
+                <i class="fab fa-cc-mastercard"></i>
+            </div>
+            <div class="type-card">
+                <input type="radio" id="visa" name="type" value="VISA" checked="checked">
+                <span class="checkmark"></span>
+                <i class="fab fa-cc-visa"></i>
+            </div>
+        </div>
+        <div class="card-name new-card">
+            <p>Name of card holder</p>
+            <div class="box-info">
+                <input id="name-input" type="text" placeholder="Enter name of card holder.">
+            </div>
+        </div>
+        <div class="card-number new-card">
+            <p>Credit card number</p>
+            <div class="box-info">
+                <input id="number-input" type="text" placeholder="Enter number of card.">
+            </div>
+        </div>
+        <div class="flex-display-box">
+            <div class="card-expiration new-card">
+                <p>Expiration</p>
+                <div class="box-info">
+                    <input id="expiration-input" type="text" placeholder="Expiration card (--/--).">
+                </div>
+            </div>
+            <div class="card-cvv new-card">
+                <p>CVV<i class="fas fa-info-circle"></i></p>
+                <div class="box-info">
+                    <input id="cvv-input" type="text" placeholder="CVV card.">
+                </div>
+            </div>
+        </div>
+        <div class="div-msg"><span id="msg"></span></div>
+        <div class="btn-section btn-new-cart flex-display-box">
+            <button id="add-new-cart-btn" class="box-btn">Add New Card</button>
+            <button id="cancel-add-cart-btn" class="box-btn">Cancel</button>
+        </div>
+    `;
+    add_New_Card.appendChild(addForm);
+    _('#add-new-cart-btn').addEventListener('click', addNewCard);
+    _('#cancel-add-cart-btn').addEventListener('click', () => {
+        mainCard.style.display = "block";
+        add_New_Card.removeChild(_('.new-card-form'));
+    });
+}
+
+function nextCard(event){
+    let parent = event.target.parentElement;
+    let next_index = parseInt(parent.querySelector('.next-index').value);
+
+    setCardInformation(next_index);
+}
+
+function makePayment(){
+    let popUpBox = _('.popup-box');
+    let floatBox = document.createElement('div');
+    popUpBox.className = "popup-box popup-box-style";
+    floatBox.className = "float-box grid-1";
+    floatBox.innerHTML = `<p class="x-close">X</p>
+        <h1>Payment complete successfully</h1>
+        <h3>Your Ticket</h3><div><table>
+        <tr><th>Product</th><th>Quantity</th><th>Price</th></tr>    
+        </table></div>`;
+    popUpBox.appendChild(floatBox);
+    let tableTag = _('table');
+
+    for(i in itemCart_DATA){
+        let trProduct = document.createElement('tr');
+        trProduct.innerHTML = `
+            <tr>
+                <td>${itemCart_DATA[i].itemName}</td>
+                <td>${itemCart_DATA[i].itemQty}</td>
+                <td>${Currency + itemCart_DATA[i].itemPrice}</td>
+            </tr>`;
+        tableTag.appendChild(trProduct);
+    }
+    let trTotal = document.createElement('tr');
+    trTotal.innerHTML = `
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td>${Currency + totalToPay()}</td>
+        </tr>`;
+    tableTag.appendChild(trTotal);
+    deleteAllItem.click();
+    _('.item-total').innerHTML = `<h1 style="color: #a7adb0;">Cart empty</h1>`;
+
+    _('.x-close')&&_('.popup-box').addEventListener('click', () => {
+        popUpBox.removeChild(floatBox);
+        popUpBox.className = "popup-box";
+    });
+}
+
+window.onload = () => {
+    setItemCart();
+    setCardInformation();
+    totalToPay();
+    if(card_DATA.length === 1) _('.next-card').style.display = "none";
+};
+
+// delete all item function
+deleteAllItem.addEventListener('click', () => {
+    let itemContainer = _('.item-container');
+    let allItem = document.querySelectorAll('.item-box');
+    //delete from DOM
+    allItem.forEach(item => {
+        itemContainer.removeChild(item);
+    });
+    //delete from DATA
+    for (let i = itemCart_DATA.length; i > 0; i--) {
+        itemCart_DATA.pop();
+    }
+    _('.btn-section').style.display = "none";
+    totalToPay();
+})
+
+make_Payment.addEventListener('click', makePayment);
+addCard.addEventListener('click', newCardDisplay);
+
+</script>
+    </body>
+</html>

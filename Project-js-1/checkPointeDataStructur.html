@@ -1,0 +1,94 @@
+<html>
+    <head>
+    <style>
+    
+    </style>
+    </head>
+    <body>
+        
+<script>
+    const set1 = [3,1,7,9];
+    const set2 = [2,4,1,9,3];
+    const set3 = [12,13,6,10];
+    const set4 = [13,10,16,15];
+
+function distinct(set1,set2){
+    let arr = [];
+    for(i in set1){
+        for(j in set2){
+            if(set1[i] === set2[j]){
+                arr.push(set1[i]);
+            }
+        }
+    }
+    return arr
+}
+
+function sumArr(arr){
+    let sum = 0;
+    for(i in arr){
+        sum += arr[i]
+    }
+    return sum
+}
+   
+let arr1 = distinct(set1,set2);
+console.log(sumArr(arr1));
+let arr2 = distinct(set3,set4);
+console.log(sumArr(arr2)*2);
+
+    const set5 = {
+        "3":3,
+        "1":1,
+        "7":7,
+        "9":9
+    };
+    const set6 = {
+        "2":2,
+        "4":4,
+        "1":1,
+        "9":9,
+        "3":3
+    };
+    const set7 = {
+        "12":12,
+        "13":13,
+        "6":6,
+        "10":10
+    };
+    const set8 = {
+        "13":13,
+        "10":10,
+        "16":16,
+        "15":15
+    };
+
+    function sumObj(obj){
+        let sum = 0;
+        for(i in obj){
+            sum += obj[i]
+        }
+        return sum
+    }
+
+    function distinct(set1,set2){
+        let arr = {};
+        for(i in set1){
+            for(j in set2){
+                if(set1[i] === set2[j]){
+                    arr[i] = set1[i];
+                }
+            }
+        }
+        return arr
+    }
+    
+    let obj1 = distinct(set5,set6);
+    console.log(sumObj(obj1));
+
+    let obj2 = distinct(set7,set8);
+    console.log(sumObj(obj2)*2);
+    
+</script>
+    </body>
+</html>

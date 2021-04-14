@@ -1,0 +1,340 @@
+@media only screen and (min-width: 1921px) {
+    .header-section, .main-section, footer {
+        width: 1800px;
+    }
+    .next-card {
+        left: 270px;
+    }
+    .item-action {
+        display: flex;
+        justify-content: space-between;
+        width: 70px;
+        align-items: center;
+        font-size: 20px;
+    }
+    .item-action>i:last-child {
+        top: 0;
+    }
+    .float-box {
+        width: 930px;
+    }
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 1920px) {
+    .header-section, .main-section, footer {
+        width: 1400px;
+    }
+    .next-card {
+        left: 200px;
+    }
+    .item-action {
+        display: flex;
+        justify-content: space-between;
+        width: 70px;
+        align-items: center;
+        font-size: 20px;
+    }
+    .item-action>i:last-child {
+        top: 0;
+    }
+}
+
+/* Tablet Device : 768px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    body {
+        font-size: 22px;
+    }
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+        align-items: center;
+    }
+    .header-section, .main-section, footer {
+        width: 700px;
+    }
+    .top-bar p:first-child {
+        font-size: 22px;
+    }
+    .top-bar p {
+        font-size: 20px;
+    }
+    .item-qty p:first-child, .item-qty p:last-child {
+        line-height: 1;
+    }
+    .item-price p {
+        font-size: 18px;
+    }
+    .item-action {
+        display: flex;
+        justify-content: space-between;
+        width: 70px;
+        align-items: center;
+        font-size: 20px;
+    }
+    .item-action>i:last-child {
+        top: 0;
+    }
+    .add-card {
+        height: 90px;
+    }
+    .add-card i {
+        font-size: 60px;
+        line-height: 1.5;
+    }
+    .box-btn:first-child ,.box-btn:last-child {
+        font-size: 20px;
+    }
+    .add-new-card {
+        margin-top: 40px;
+    }
+    .card-name p, .card-number p, .card-expiration>div p, .card-cvv>div p {
+        padding: 0 40px;
+    }
+    .new-card input {
+        padding: 20px;
+        font-size: 25px;
+    }
+    .card-expiration>div, .card-cvv>div {
+        background-color: white;
+        width: 100%;
+    }
+    .next-card {
+        font-size: 60px;
+        position: relative;
+        bottom: 60px;
+        left: 180px;
+        height: 0;
+    }
+    .float-box {
+        width: 650px;
+        left: 5%;
+    }
+    .float-box h1 {
+        font-size: 30px;
+    }
+    .float-box h3 {
+        font-size: 20px;
+        top: 60px;
+    }
+}
+
+/* Large Mobile : 480px */
+@media only screen and (min-width: 479px) and (max-width: 767px) {
+    body {
+        font-size: 20px;
+    }
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+        align-items: center;
+    }
+    .grid-12 {
+        column-gap: 10px;
+        row-gap: 20px;
+    }
+    .header-section, .main-section, footer {
+        width: 475px;
+    }
+    .item-box img {
+        grid-row: 1;
+    }
+    .item-text {
+        margin-left: 15px;
+        grid-column: 3/12;
+        grid-row: 1;
+    }
+    .item-qty {
+        grid-column: 1/6;
+        grid-row: 2;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .item-price {
+        grid-column: 12;
+        display: flex;
+        justify-content: center;
+    }
+    .item-text p:last-child {
+        font-size: 14px;
+    }
+    .item-qty p:first-child, .item-qty p:last-child {
+        width: 40px;
+        height: 40px;
+        background-color: #e1e9e9;
+        line-height: 1.1;
+        font-size: 1.5em;
+    }
+    .item-qty p {
+        font-size: 0.9em;
+        line-height: 2;
+    }
+    .item-price p {
+        font-size: 16px;
+    }
+    .item-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-row: 2;
+        grid-column: 7/12;
+        font-size: 40px;
+    }
+    .item-action>i:last-child {
+        top: 0;
+    }
+    .add-card {
+        height: 85px;
+    }
+    .add-card i {
+        line-height: 1.7;
+        font-size: xxx-large;
+    }
+    .add-new-card {
+        margin-top: 30px;
+    }
+    .card-expiration>div, .card-cvv>div {
+        margin: 0;
+        width: 100%;
+    }
+    .next-card {
+        font-size: 50px;
+        bottom: 80px;
+        left: 105px;
+    }
+    .float-box {
+        width: 450px;
+        left: 15%;
+    }
+    .float-box h1 {
+        font-size: 20px;
+    }
+    .float-box h3 {
+        font-size: 16px;
+        top: 53px;
+    }
+}
+
+/* Small : 320px */
+@media only screen and (max-width: 479px) {
+    body {
+        font-size: 16px;
+    }
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+        align-items: center;
+    }
+    .grid-12 {
+        column-gap: 10px;
+        row-gap: 20px;
+    }
+    .header-section, .main-section, footer {
+        width: 340px;
+    }
+    .item-box img {
+        grid-row: 1;
+        width: 60px;
+        height: 60px;
+    }
+    .item-text {
+        margin-left: 15px;
+        grid-column: 3/12;
+        grid-row: 1;
+    }
+    .item-qty {
+        grid-column: 1/6;
+        grid-row: 2;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .item-price {
+        grid-column: 12;
+        display: flex;
+        justify-content: center;
+    }
+    .item-text p:last-child {
+        font-size: 10px;
+    }
+    .item-qty p:first-child, .item-qty p:last-child {
+        width: 30px;
+        height: 30px;
+        background-color: #e1e9e9;
+        line-height: 1.1;
+        font-size: 1.5em;
+    }
+    .item-qty p {
+        font-size: 0.9em;
+        line-height: 2;
+    }
+    .item-price p {
+        font-size: 14px;
+    }
+    .item-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-row: 2;
+        grid-column: 7/12;
+        font-size: 25px;
+    }
+    .item-action>i:last-child {
+        top: 0;
+    }
+    .add-card {
+        height: 60px;
+    }
+    .add-card i {
+        line-height: 1.7;
+        font-size: xx-large;
+    }
+    .add-new-card {
+        margin-top: 30px;
+    }
+    .card-expiration>div, .card-cvv>div {
+        margin: 0;
+        width: 100%;
+    }
+    .next-card {
+        font-size: 30px;
+        bottom: 60px;
+        left: 70px;
+    }
+    .float-box {
+        width: 315px;
+        left: 10px;
+    }
+    .float-box h1 {
+        font-size: 16px;
+    }
+    .float-box h3 {
+        font-size: 14px;
+        top: 50px;
+    }
+    .float-box div {
+        padding: 12px;
+    }
+    .main-card {
+        font-size: 14px;
+    }
+    .card-panel p b {
+        font-size: 6px;
+    }
+    .card-panel p {
+        font-size: 10px;
+    }
+    .type-card i {
+        font-size: 60px;
+    }
+    .card-panel p:last-child {
+        font-size: 6px;
+    }
+    tr:only-child {
+        font-size: 12px;
+    }
+    td {
+        font-size: 12px;
+    }
+}

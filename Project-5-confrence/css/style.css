@@ -1,0 +1,117 @@
+
+body {
+    margin: 0;
+    background: #293F50;
+    color: #888;
+    font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+    color: #648880;
+}
+.title-div {
+    flex-basis: 40%;
+}
+header h3 {
+    color: #5f8880;
+    text-align: right;
+    font-weight: 100;
+}
+header nav a {
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+header nav a:hover {
+    color: 648880;
+}
+.title-div h1 {
+    width: 80%;
+    font-weight: 100;
+    font-size: 55px;
+    line-height: 0.8;
+}
+.section-h {
+    margin-bottom: 40px;
+}
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.section-content h1 {
+    margin-bottom: 0;
+    color: #648880;
+}
+.section-content a {
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+}
+.section-main {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+.img-speakers {
+    height: 210px;
+    background-image: url(../images/speakers.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+.img-schedule {
+    height: 210px;
+    background-image: url(../images/schedule.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+.img-venue {
+    height: 210px;
+    background-image: url(../images/venue.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+.boxs {
+    flex-basis: 19%;
+    padding: 10px;
+}
+.boxs h6 {
+    margin-bottom: 10px;
+}
+.boxs h4 {
+    font-weight: 100;
+    color: #648880;
+}
+.boxs p {
+    font-size: 14px;
+}
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 25vh;
+}
+footer div p {
+    color: #648880;
+}
+footer div div a {
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+footer div div a:hover {
+    color: 648880;
+}

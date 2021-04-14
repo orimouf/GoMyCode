@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #648880;
+  text-decoration: none;
+}
+/*--------- Section 1 ----------*/
+ul {
+  display: flex;
+  float: right;
+  width: auto;
+  list-style: none;
+}
+.title-div {
+  flex-basis: 40%;
+}
+.title-div h1{
+  color: #fff;
+}
+header h3 {
+  color: #5f8880;
+  text-align: right;
+  font-weight: 100;
+}
+header nav a {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+header nav a:hover {
+  color: 648880;
+}
+.section-h {
+  padding-bottom: 40px;
+  height: 60vh;
+  background-image: url(../images/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-content {
+  margin-top: 15vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.section-content h1 {
+  margin-bottom: 0;
+    color: #ffffff;
+    font-size: 3em;
+    padding: 20px 0;
+}
+.section-content p {
+  color: white;
+}
+.section-content a, .sub-form a {
+  color: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #1091f6;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #1091f6;
+}
+
+/*-------------- Section 2 ---------------*/
+.section-flex {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mg-section-2 {
+  margin-top: 50px;
+}
+.images-all {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.li-1 {
+  width: 100%;
+  display: flex;
+  height: 30vh;
+  justify-content: space-between;
+padding-bottom: 20px;
+}
+.li-2 {
+  width: 100%;
+  display: flex;
+  height: 30vh;
+  justify-content: space-between;
+}
+.big-img{
+  background-color: rgb(31, 30, 30);
+  flex-basis: 68%;
+}
+.small-img{
+  background-color: rgb(31, 30, 30);
+  flex-basis: 30%;
+}
+.img1 {
+  background-image: url(../images/balloon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.img2 {
+  background-image: url(../images/coast.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.img3 {
+  background-image: url(../images/island.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.img4 {
+  background-image: url(../images/mountain.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.p-class {
+  width: 500px;
+  text-align: center;
+}
+.p-class hr {
+  width: 150px;
+    border: 1px solid #1091f6;
+}
+
+/*-------------- Section 3 ---------------*/
+.box-all {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.box {
+  height: 30vh;
+  padding-bottom: 20px;
+  flex-basis: 30%;
+  text-align: center;
+}
+.icons {
+  color: lightskyblue;
+  font-size: xxx-large;
+}
+.bg-section-3 {
+  background-color: #e7e7e7;
+  margin-top: 50px;
+}
+
+/*-------------- Section 4 ---------------*/
+.sub-form input[type="text"] {
+  width: 60vh;
+  padding: 10px;
+  margin: 25px;
+}
+
+/*-------------- footer ---------------*/
+.footer-flex {
+  width: 25%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer {
+  display: flex;
+  height: 10vh;
+  text-align: center;
+  background-color: #414A4F;
+}
+footer i {
+  font-size: 30px;
+  color: silver;
+  flex-basis: 20%;
+}

@@ -1,0 +1,34 @@
+
+<svg width="120px" height="92px" viewBox="0 0 120 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Mask" fill="#E5F9F7" cx="60" cy="44" r="40"></circle>
+        <circle fill="#FEFBDC" cx="81" cy="11.25" r="11.25"></circle>
+        <circle stroke="#000000" stroke-width="2" cx="81" cy="11.25" r="10.25"></circle>
+        <path d="M0,75.75 L120,75.75" id="Path-12" stroke="#000000" stroke-width="2"></path>
+        <path d="M0,83.25 L120,83.25" id="Path-12" stroke="#000000" stroke-width="2"></path>
+        <path d="M0,90.75 L120,90.75" id="Path-12" stroke="#000000" stroke-width="2"></path>
+        <path d="M49.5,75 L49.5,54.75 C49.5,54.75 49.5129272,42.7370728 60.3814636,43.1185364 C71.25,43.5 71.25,55.5 71.25,55.5 L71.25,75.75" id="Path-32" stroke="#000000" stroke-width="2"></path>
+        <path d="M42,75.75 L42,48.75 C42,48.75 42.375,45 45.75,45 C49.125,45 49.5,48.75 49.5,48.75 L49.5,75.75" id="Path-33" stroke="#000000" stroke-width="2"></path>
+        <path d="M71.25,75.75 L71.25,48.75 C71.25,48.75 71.625,45 75,45 C78.375,45 78.75,48.75 78.75,48.75 L78.75,75.75 M48.75,39 L48.75,36.75 C48.75,36.75 51.75,29.25 60,29.25 C68.25,29.25 71.25,36.75 71.25,36.75 L71.25,39 M31.125,75.75 L31.125,54.375 C31.125,54.375 33.5581611,48.7602837 36.75,45.375 C39.9418389,41.9897163 43.5,41.25 43.5,41.25 M89.625,75.75 L89.625,54.375 C89.625,54.375 87.1918389,48.7602837 84,45.375 C80.8081611,41.9897163 77.25,41.25 77.25,41.25 M31.125,54.75 L89.6262019,54.75" id="Path-33" stroke="#000000" stroke-width="2"></path>
+        <polyline id="Path-34" stroke="#000000" stroke-width="2" points="43.5 45.75 43.5 39.3639801 77.2519626 39.3639801 77.2519626 45.7500003"></polyline>
+        <polyline id="Path" stroke="#000000" stroke-width="2" points="8.25 75.375 8.25 68.625 31.125 68.625"></polyline>
+        <path d="M15,68.625 L15,75.75" id="Path-35" stroke="#000000" stroke-width="2"></path>
+        <polyline id="Path-36" stroke="#000000" stroke-width="2" points="18.75 68.25 18.75 60.3660765 31.125 54.75"></polyline>
+        <polyline id="Path-37" stroke="#000000" stroke-width="2" points="10.5 68.625 10.5 62.9875139 18.7500094 62.9875139"></polyline>
+        <polyline id="Path-38" stroke="#000000" stroke-width="2" points="13.875 63 13.875 54 15 48.75 15 25.5 17.25 10.5 19.875 25.5 19.875 48.75 21 54 21 59.25"></polyline>
+        <path d="M15,25.5 L19.5,25.5" id="Path-39" stroke="#000000" stroke-width="2"></path>
+        <path d="M15,48 L19.5,48" id="Path-40" stroke="#000000" stroke-width="2"></path>
+        <path d="M24,57.75 L24,48 C24,48 23.625,44.25 27,44.25 C30.375,44.25 30,48 30,48 L30,55.5" id="Path-33" stroke="#000000" stroke-width="2"></path>
+        <path d="M24,48 L30,48" id="Path-41" stroke="#000000" stroke-width="2"></path>
+        <polyline id="Path" stroke="#000000" stroke-width="2" transform="translate(101.062500, 72.000000) scale(-1, 1) translate(-101.062500, -72.000000) " points="89.625 75.375 89.625 68.625 112.5 68.625"></polyline>
+        <path d="M105.75,68.625 L105.75,75.75" id="Path-35" stroke="#000000" stroke-width="2" transform="translate(105.750000, 72.187500) scale(-1, 1) translate(-105.750000, -72.187500) "></path>
+        <polyline id="Path-36" stroke="#000000" stroke-width="2" transform="translate(95.812500, 61.500000) scale(-1, 1) translate(-95.812500, -61.500000) " points="89.625 68.25 89.625 60.3660765 102 54.75"></polyline>
+        <polyline id="Path-37" stroke="#000000" stroke-width="2" transform="translate(106.124995, 65.806257) scale(-1, 1) translate(-106.124995, -65.806257) " points="101.999991 68.625 101.999991 62.9875139 110.25 62.9875139"></polyline>
+        <polyline id="Path-38" stroke="#000000" stroke-width="2" transform="translate(103.312500, 36.750000) scale(-1, 1) translate(-103.312500, -36.750000) " points="99.75 63 99.75 54 100.875 48.75 100.875 25.5 103.125 10.5 105.75 25.5 105.75 48.75 106.875 54 106.875 59.25"></polyline>
+        <path d="M101.25,25.5 L105.75,25.5" id="Path-39" stroke="#000000" stroke-width="2" transform="translate(103.500000, 25.500000) scale(-1, 1) translate(-103.500000, -25.500000) "></path>
+        <path d="M101.25,48 L105.75,48" id="Path-40" stroke="#000000" stroke-width="2" transform="translate(103.500000, 48.000000) scale(-1, 1) translate(-103.500000, -48.000000) "></path>
+        <path d="M90.75,57.75 L90.75,48 C90.75,48 90.375,44.25 93.75,44.25 C97.125,44.25 96.75,48 96.75,48 L96.75,55.5" id="Path-33" stroke="#000000" stroke-width="2" transform="translate(93.750000, 51.000000) scale(-1, 1) translate(-93.750000, -51.000000) "></path>
+        <path d="M90.75,48 L96.75,48" id="Path-41" stroke="#000000" stroke-width="2" transform="translate(93.750000, 48.000000) scale(-1, 1) translate(-93.750000, -48.000000) "></path>
+        <path d="M55.75,75.5 L64.25,75.5 L64.25,66.7462721 C64.25,64.3981005 62.3492779,62.5 60,62.5 C57.6563196,62.5 55.75,64.4034884 55.75,66.7462721 L55.75,75.5 Z" id="Rectangle-7" stroke="#000000" stroke-width="2"></path>
+    </g>
+</svg>

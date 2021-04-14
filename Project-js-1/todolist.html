@@ -1,0 +1,151 @@
+<html>
+    <head>
+    <style>
+    body{
+        background-color: aquamarine;
+    }
+    .grid ,.boxOfAll {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        align-items: center;
+    }
+    .box {
+        font-family: cursive;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 4px -1px #000000a1;
+    }
+    .title {
+        font-size: 4em;
+        color: #696978;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 50px;
+    }
+    .inputBox {
+        text-align: center;
+    }
+    .container {
+        margin: 0 auto;
+        width: 500px;
+        padding: 10px;
+    }
+    .container input:first-child {
+        font-size: 30px;
+        color: #838686;
+        padding: 10px;
+        border: 0;
+        box-shadow: 0px 0px 4px -1px #000000a1;
+    }
+    .btn {
+        font-size: 30px;
+        color: #838686;
+        margin: 0 -5px;
+        padding: 10px 15px;
+        background-color: white;
+        border: 0;
+        box-shadow: 0px 0px 4px -1px #000000a1;
+    }
+    .todoText {
+        width: 87%;
+        float: left;
+        margin: 0;
+        padding: 16px 8px;
+        cursor: pointer;
+        background-color: white;
+        color: #696978;
+    }
+    .todoTextDone {
+        width: 87%;
+        float: left;
+        margin: 0;
+        padding: 16px 8px;
+        text-decoration: line-through;
+        background-color: #69697824;
+        color: #696978;
+    }
+    .todoText:hover ,.btn:hover ,.xIcon:hover {
+        background-color: #22e5a3;
+        color: #ffffff;
+    }
+    .xIcon {
+        width: 8%;
+        height: 100%;
+        float: right;
+        text-align: center;
+        background-color: white;
+        margin: 0;
+        padding: 16px 4px;
+        color: #696978;
+        cursor: pointer;
+    }
+    </style>
+    </head>
+    <body>
+        <h1 class="title">TO-DO LIST</h1>
+        <div class="container">
+            <div class="grid">
+                <div class="inputBox">
+                    <input id="todo" type="text" placeholder="What to do !">
+                    <input class="btn" type="button" value="+">
+                </div>
+                <div class="boxOfAll"></div>
+            </div>
+        </div>
+        
+        
+<script>
+    let inputTodo = document.querySelector("#todo");
+    let btn = document.querySelector(".btn");
+    let grid = document.querySelector(".grid");
+    let boxOfAll = document.querySelector(".boxOfAll");
+    let xIcon = document.querySelector('.xIcon');
+    let div,p1,p2;
+    
+    function todoList(){
+        let todoValue = inputTodo.value;
+
+        if(todoValue === ""){
+            inputTodo.style.color = "#f80707";
+            inputTodo.style.boxShadow = "0px 0px 4px 1px #ff0000";
+            btn.style.color = "#f80707";
+            btn.style.boxShadow = "0px 0px 4px 1px #ff0000";
+        } else {
+            inputTodo.style.color = "";inputTodo.style.boxShadow = "";btn.style.color = "";btn.style.boxShadow = "";
+
+            div = document.createElement('div')
+            div.className = 'box'
+            p1 = document.createElement('p')
+            p1.className = 'todoText'
+            p1.textContent = todoValue
+            p2 = document.createElement('p')
+            p2.className = 'xIcon'
+            p2.textContent = 'x'
+
+            boxOfAll.appendChild(div)
+            div.appendChild(p1)
+            div.appendChild(p2)
+        }
+    }
+
+    btn.addEventListener('click',todoList);
+
+    document.body.addEventListener("mousedown", function(e){
+        //add event listener to delete element
+        document.querySelectorAll('.xIcon').forEach(item => {
+            item.addEventListener('click', event => {
+                let toDelete = event.target.parentElement;
+                boxOfAll.removeChild(toDelete);
+            })
+        })
+        //add event listener to mark like done
+        document.querySelectorAll('.todoText').forEach(item => {
+            item.addEventListener('click', event => {   
+                event.target.className = "todoTextDone";
+            })
+        })
+    })
+    
+</script>
+    </body>
+</html>

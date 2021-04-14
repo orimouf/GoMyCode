@@ -1,0 +1,415 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+
+// https://www.newgames.com/en/parking-smarty.html
+// oussama beddiaf11:46 AM
+// https://www.newgames.com/en/mahjong-quest-mania.html
+// oussama beddiaf11:47 AM
+// Phaser/js
+// https://phaser.io
+
+function nbYear(p0, percent, aug, p) {
+    let n=0;
+    while(p0<p){
+     
+       p0+=p0*percent/100+aug;
+       n++;
+      
+    }
+  return n;
+}
+
+console.log(nbYear(100,2/100 ,50,1200));
+
+
+function maskify(str) {
+    //let arr = str.split();
+    //console.log(arr);
+    //if(arr.lenght > 4) {
+        for (let i = 0; i < str.length-4; i++) {
+            str = str[i].replace(str[i], "#");
+            
+        }
+    //}
+    return str;
+}
+
+console.log(maskify("4556364607935616"));
+
+const mask=(str)=>{
+for (let i=0;i<str.lenght-4;i++){
+   let res = str[i].replace(/str[i]/g, "#");
+   return res;
+}}
+
+mask("jijijjjjjj");
+
+
+function arrayDiff(a,b){
+    let array = [];
+    for (let i = 0; i < a.length; i++) {
+        if(a[i] !== b[0]){
+            array.push(a[i]);
+        }
+    }
+    return array;
+}
+
+console.log(arrayDiff([1,2],[1]));
+console.log(arrayDiff([1,2,2,2,2,3],[2]));
+
+
+function arrayDiff2(a,b){
+ return a.filter(e => !b.includes(e));
+}
+console.log(arrayDiff2([1,2],[1]));
+console.log(arrayDiff2([1,2,2,2,2,3],[2]));
+
+
+/* ---------------------  Jaden Casing Strings  ------------------------------------- */
+function jadenCasingString(str){
+    let string = str.split(" ");
+    string.forEach((e,i,arr) => arr[i] = e.charAt(0).toUpperCase() + e.slice(1));
+    return string.join(' ');
+}
+console.log(jadenCasingString("How can mirrors be real if our eyes aren't real"));
+
+var str = "How can mirrors be real if our eyes aren't real";
+String.prototype.toJadenCase = function () {
+  let string = this.split(" ");
+    string.forEach((e,i,arr) => arr[i] = e.charAt(0).toUpperCase() + e.slice(1));
+    return string.join(' ');
+};
+
+/* ---------------------  Vowel Count  ------------------------------------- */
+const chai = "miy pyaax";
+
+function getCount(str) {
+  var vowelsCount = 0;
+  var check = str.match(/[a,i,u,e,o]/g);
+  if(check !== null) vowelsCount = check.length;
+  
+  return vowelsCount;
+}
+
+console.log(getCount(chai));
+
+/* ---------------------  Even or Odd  ------------------------------------- */
+function even_or_odd(number) {
+  return number % 2 ? "Odd" : "Even"
+}
+
+console.log(even_or_odd(2));// "Even"
+console.log(even_or_odd(0));// "Even"
+console.log(even_or_odd(7));// "Odd"
+console.log(even_or_odd(1));// "Odd"
+
+/* ---------------------  Get the Middle Character  ------------------------------------- */
+function getMiddle(s) {
+  return s.length % 2 ? s.slice((s.length/2),(s.length/2)+1) : s.slice((s.length/2)-1,(s.length/2)+1);
+}
+
+console.log(getMiddle("ttest"));
+
+/* ---------------------  Opposite number  ------------------------------------- */
+function opposite(number) {
+  return number < 0 ? Math.abs(number) : -Math.abs(number);
+}
+
+console.log(opposite(1));
+
+/* ---------------------  Mumbling  ------------------------------------- */
+function accum(s) {
+    return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+}
+
+console.log(accum("abcd"));
+console.log(accum("ZpglnRxqenU"));
+
+/* ---------------------  You're a square!  ------------------------------------- */
+var isSquare = function(n){
+    return Math.sqrt(n) % 1 === 0 ? true : false;
+}
+
+console.log(isSquare(-1));
+console.log(isSquare(0));
+console.log(isSquare(3));
+console.log(isSquare(4));
+console.log(isSquare(25));
+console.log(isSquare(26));
+
+/* ---------------------  You're a square!  ------------------------------------- */
+function disemvowel(str) {
+  //return str.split('').map((c) => c.match(/[^\a\e\u\i\o]/gi)).join('');
+  return str.replace(/[aeiou]/gi, '');
+}
+
+console.log(disemvowel("This website is, for losers LOL!"));
+console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"));
+
+/* ---------------------  You're a square!  ------------------------------------- */
+function highAndLow(numbers){
+  return Math.max.apply(null, numbers.split(' ')) + " " + Math.min.apply(null, numbers.split(' '))
+}
+
+console.log(highAndLow("1 2 3 4 5"));
+console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+
+/* ---------------------  You're a square!  ------------------------------------- */
+function XO(str) {
+    //return str.includes('x') && str.includes('o') ? (str.match(/o/gi).length === str.match(/x/gi).length ? true : false) : (str === "" || (!str.includes('x') && !str.includes('o'))) ? true : false;
+    let x = str.match(/x/gi);
+    let o = str.match(/o/gi);
+    return (x && x.length) === (o && o.length);
+}
+
+console.log(XO(''));
+console.log(XO('xo'));
+console.log(XO("xxOo"));
+console.log(XO("xxxm"));
+console.log(XO("zpzpzpp"));
+console.log(XO("Oo"));
+console.log(XO("ooom"));
+
+/* --------------------- Square Every Digit  ------------------------------------- */
+function squareDigits(num){
+  return parseInt(num.toString().split('').map((n) => (n*n)).join(''));
+}
+
+console.log(squareDigits(3212)); //9414
+console.log(squareDigits(0)); //0
+
+/* ---------------------  Shortest Word  ------------------------------------- */
+function findShort(s){
+    // return s.split(' ').reduce((shortestWord, currentWord) => {
+    //     return currentWord.length < shortestWord.length ? currentWord : shortestWord;
+    // }, s.split(' ')[0]).length;
+    return Math.min.apply(null, s.split(' ').map(w => w.length));
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
+/* ---------------------    ------------------------------------- */
+function DNAStrand(dna){
+  return dna.split('').map(d => 
+  (d === "A") ? d.replace("A","T") : (d === "T") ? d.replace("T","A") : (d === "C") ? d.replace("C","G") : d.replace("G","C")
+  ).join('');
+}
+
+console.log(DNAStrand("AAAA")); //"TTTT"
+console.log(DNAStrand("ATTGC")); //"TAACG"
+console.log(DNAStrand("GTAT")); //"CATA"
+/* ---------------------  Descending Order  ------------------------------------- */
+function descendingOrder(n){
+    return parseInt((n.toString().split('').sort().reverse()).join('')); 
+}
+
+console.log(descendingOrder(15));  //51
+console.log(descendingOrder(123456789));  //987654321
+/* ---------------------    ------------------------------------- */
+function positiveSum(arr) {
+    let array = arr.filter(e => e > 0)
+  return (array.length === 0) ? 0 : array.reduce((total, num) => {
+    return total + num
+ })
+}
+
+console.log(positiveSum([])); //0
+console.log(positiveSum([1,-2,3,4,5])); //13
+console.log(positiveSum([-1,-2,-3,-4,-5])); //0
+console.log(positiveSum([-1,2,3,4,-5])); //9
+/* ---------------------  Isograms  ------------------------------------- */
+function isIsogram(str){
+    //return str.split("").every((c, i) => str.toLowerCase().indexOf(c) == i);
+    return !/(\w).*\1/i.test(str)
+}
+console.log(isIsogram("Dermatoglyphics"));
+console.log(isIsogram("thomas")); // False
+console.log(isIsogram("moses")); // True
+console.log(isIsogram("isogramm")); // true
+/* ---------------------  List Filtering  ------------------------------------- */
+function filter_list(l) {
+  return l.filter(e => Number.isInteger(e))
+}
+
+console.log(filter_list([1,2,'a','b']));
+/* ---------------------   Find the smallest integer in the array ------------------------------------- */
+function findSmallestInt(args) {
+    return Math.min.apply(null, args)
+    //return Math.min(...args)
+}
+console.log(findSmallestInt([78,56,232,12,8])); //8
+/* ---------------------  Sum of two lowest positive integers  ------------------------------------- */
+function sumTwoSmallestNumbers(numbers) {  
+  return numbers.sort(function(a,b){return a-b}).slice(0,2).reduce((m,n) =>  n+m)
+}
+
+console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
+console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43]));
+/* ---------------------  Growth of a Population  ------------------------------------- */
+function nbYear(p0, percent, aug, p) {
+    let i = 0; 
+    while (p0 < p) { p0 = p0 + (p0 * (percent/100)) + aug ;i++;}
+    return i
+}
+
+console.log(nbYear(1500, 5, 100, 5000)); // 15
+console.log(nbYear(1500000, 2.5, 10000, 2000000)); // 10 
+console.log(nbYear(1500000, 0.25, 1000, 2000000)); // 94
+/* ---------------------  String repeat  ------------------------------------- */
+function repeatStr (n, s) {
+  return s.repeat(n);
+}
+console.log(repeatStr(3, "*")); // ***
+/* ---------------------  Is this a triangle?  ------------------------------------- */
+function isTriangle(a,b,c) {
+   return (a + b > c) && (a + c > b) && (b + c > a);
+}
+
+console.log(isTriangle(1,2,2)); // true
+console.log(isTriangle(7,2,2)); // false
+/* ---------------------  Find the next perfect square!  ------------------------------------- */
+function findNextSquare(sq) {
+    if(Math.sqrt(sq) % 1 !== 0) return -1; else sq++; while (Math.sqrt(sq) % 1 !== 0) {sq++};
+    return sq;
+}
+
+console.log(findNextSquare(121)); // 144
+console.log(findNextSquare(155)); // -1
+/* ---------------------    ------------------------------------- */
+function maskify(cc) {
+    return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
+
+console.log(maskify('4556364607935616'));
+console.log(maskify('11111'));
+/* ---------------------  Sum of odd numbers  ------------------------------------- */
+function rowSumOddNumbers(n) {
+    return n * n * n;
+}
+
+console.log(rowSumOddNumbers(1)); // 1
+console.log(rowSumOddNumbers(42)); // 74088
+/* ---------------------  Find the divisors!  ------------------------------------- */
+ function divisors(integer) {
+    let arr = [...Array(integer + 1).keys()].slice(2).filter((i) => integer % i === 0 && integer !== i );
+    return arr.length === 0 ? integer+' is prime' : arr;
+ }
+
+console.log(divisors(15)); // 3,5
+console.log(divisors(12)); // 2, 3, 4, 6
+console.log(divisors(13)); // "13 is prime"
+/* ---------------------  Return Negative  ------------------------------------- */
+function makeNegative(num) {
+  return num < 0 ? num : (-num)
+}
+console.log(makeNegative(42)); // -42
+/* ---------------------  Remove First and Last Character  ------------------------------------- */
+function removeChar(str){
+    return str.slice(1, str.length-1);
+}
+
+console.log(removeChar('eloquent')); //loquen
+/* ---------------------  Remove String Spaces  ------------------------------------- */
+function noSpace(x){
+    return x.replace(/ /g,'')
+}
+
+console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')); // '8j8mBliB8gimjB8B8jlB'
+/* ---------------------  Convert boolean values to strings 'Yes' or 'No'.  ------------------------------------- */
+function boolToWord( bool ){
+    return bool !== true ? 'No' : 'Yes'
+}
+
+console.log(boolToWord(true)); // 'Yes'
+console.log(boolToWord(false)); // 'No'
+/* ---------------------  Convert a Number to a String!  ------------------------------------- */
+function numberToString(num) {
+  return num.toString()
+}
+
+console.log(numberToString(67)); // '67'
+/* ---------------------  Basic Mathematical Operations  ------------------------------------- */
+function basicOp(operation, value1, value2) {
+  //return operation === '+' ? value1 + value2 : operation === '-' ? value1 - value2 : operation === '*' ? value1 * value2 : value1 / value2;
+  return eval(value1+operation+value2);
+}
+
+console.log(basicOp('+', 4, 7)); // 11
+console.log(basicOp('-', 15, 18)); // -3
+console.log(basicOp('*', 5, 5)); // 25
+console.log(basicOp('/', 49, 7)); // 7
+/* ---------------------  Sum of the first nth term of Series  ------------------------------------- */
+function SeriesSum(n){
+   for (var s = 0, i = 0; i < n; i++) {s += 1 / (1 + i * 3)}
+   return s.toFixed(2)
+}
+
+console.log(SeriesSum(1)); // 1.00
+/* ---------------------  Keep Hydrated!  ------------------------------------- */
+function litres(time) {
+  return Math.floor(time * 0.5)
+}
+
+console.log(litres(2)); //1
+console.log(litres(1.4)); //0
+/* ---------------------  Century From Year  ------------------------------------- */
+function century(year) {
+    return year % 100 === 0 ? (year / 100) : Math.floor((year / 100) + 1)
+}
+
+console.log(century(1705)); // 18
+console.log(century(89)); // 1
+/* ---------------------  Beginner - Lost Without a Map  ------------------------------------- */
+function maps(x){
+    return x.map(e => e * 2)
+}
+
+console.log(maps([1, 2, 3])); // [2, 4, 6]
+/* ---------------------  Reversed Strings  ------------------------------------- */
+function solution(str){
+  return str.split('').reverse().join('')
+}
+
+console.log(solution('world')); // dlrow
+/* ---------------------    ------------------------------------- */
+function solution2(str, ending){
+  return str.slice((str.length-ending.length),str.length) === ending ? true : false ;
+}  
+
+console.log(solution2('abcde', 'cde')); // true
+console.log(solution2('abcde', 'abc'));  // false
+/* ---------------------  Do I get a bonus?  ------------------------------------- */
+function bonusTime(salary, bonus) {
+    return bonus === true ? "£"+(salary * 10) : "£"+salary ;
+}
+
+console.log(bonusTime(10000, true)); //'£100000'
+console.log(bonusTime(60000, false)); //'£60000'
+/* ---------------------  Abbreviate a Two Word Name  ------------------------------------- */
+function abbrevName(name){
+    return name.split(' ').map(e => e.charAt(0)).join('.').toUpperCase()
+}
+
+console.log(abbrevName("sam harris")); // "S.H"
+/* --------------------- DNA to RNA Conversion   ------------------------------------- */
+function DNAtoRNA(dna) {
+  return dna.split('').map(d => d.replace("T","U")).join('')
+}
+
+console.log(DNAtoRNA("TTTT")); // "UUUU"
+console.log(DNAtoRNA("GCAT")); // "GCAU"
+/* ---------------------    ------------------------------------- */
+
+/* ---------------------    ------------------------------------- */
+
+/* ---------------------    ------------------------------------- */
+
+
+
+</script>
+
+</body>
+</html>

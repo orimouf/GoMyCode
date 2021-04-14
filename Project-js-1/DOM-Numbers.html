@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title >Flex</title>
+        <style>
+            .grid {
+                display: grid; grid-template-columns: repeat(10, 1fr); gap: 20px; align-items: center;
+            }
+            .box {
+                text-align: center; color: white; padding: 10px; font-size: 24px;
+            }
+            .msg {
+                margin: 0 40px;
+                padding: 8px;
+                border: 1px solid red;
+                border-radius: 5px;
+                background-color: #e9dbdb;
+                color: red;
+                font-size: 20px;
+                font-weight: 700;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div style="margin: 20px;">
+            <h1 style="text-align: center;"> Number Generator</h1>
+            <label style="font-size: 24px;">Enter a Number :</label>
+            <input id="numInput" type="number" placeholder="Enter a Number" style="font-size: 24px;">
+            <button onclick="numGenerator()" style="font-size: 24px;">Generate </button>
+            <span id="msg"></span>
+        </div>
+        <div class="container grid"></div>
+
+      <script>
+          
+/*
+Create a div container on HTML document and create 100 to 100 numbers
+dynamically and append to the container div
+    - Even numbers background is green
+    - Odd numbers background is yellow
+    - Prime numbers background is red
+*/
+function cleanContainer(container){
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+function numGenerator(){
+    let container = document.querySelector('.container');
+    let div;
+    let numInput = document.getElementById('numInput').value;
+    let msg = document.getElementById('msg');
+
+    cleanContainer(container);
+    if(numInput === ""){
+        msg.className = "msg";
+        msg.innerHTML = "Enter a Number PLZ!";
+    } else {
+        msg.className = "";
+        msg.innerHTML = "";
+        let number = parseInt(numInput) - 1;
+    
+        for (let i = 0; i <= number; i++) {
+
+            div = document.createElement('div')
+            div.className = 'box'
+            div.textContent = i
+
+            if(isPrime(i)) {
+                div.style.backgroundColor = 'red'
+            } else {
+                if(i%2 === 0) {
+                    div.style.backgroundColor = 'green'
+                } else {
+                    div.style.backgroundColor = 'yellow'
+                }
+            }
+
+            container.appendChild(div)
+        }
+    }
+}  
+function isPrime(num) {
+    for(var i = 2; i < num; i++)
+        if(num % i === 0) return false;
+        return num > 1;
+}
+
+      </script>
+  
+    </body>
+</html>

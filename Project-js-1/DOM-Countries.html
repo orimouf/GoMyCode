@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title >DOM2</title>
+        <script src="js/countries_data.js"></script>
+        <style>
+            .grid {
+                display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; align-items: center;
+            }
+            .box {
+                text-align: center;
+                color: black;
+                padding: 70px;
+                font-size: 20px;
+                box-shadow: 0px 0px 5px 0px #4b4949;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container"></div>
+
+      <script>
+
+    let container = document.querySelector('.container');
+    let div;
+
+    container.className = 'grid';
+    
+    countries.forEach(element => {
+        div = document.createElement('div')
+        div.className = 'box'
+        div.textContent = element.name
+
+        container.appendChild(div)
+    });
+        
+      </script>
+  
+    </body>
+</html>
